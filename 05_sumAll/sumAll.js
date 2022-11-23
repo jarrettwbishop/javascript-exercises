@@ -1,18 +1,16 @@
 const sumAll = function(a, b) {
-    function compareNumbers(a, b) {
-        return a - b;
+
+    if (a < 0 || b < 0) {
+        return "ERROR"
     }
-    let arr = Array.from(arguments).sort(compareNumbers);
+
+    if (typeof a != 'number' || typeof b != 'number') {
+        return "ERROR"
+    }
+
+    let arr = Array.from(arguments).sort((a,b) => a - b);
     let min = arr[0];
     let max = arr[1];
-
-    if (min < 0 || max < 0) {
-        return "ERROR"
-    }
-
-    if (isNaN(min) || isNaN(max)) {
-        return "ERROR"
-    }
 
     let result = 0
     for (let i = min; i <= max; i++) {
